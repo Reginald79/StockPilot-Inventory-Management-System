@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "StockPilot",
+    "slug": "stockpilot",
+    "version": "1.0.0",
+    "scheme": "stockpilot",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "web": {
+      "bundler": "metro",
+      "output": "single"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-asset"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}
