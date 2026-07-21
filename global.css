@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Light — soft gray surfaces, muted blue accent. Values are "R G B" triples
+   (no commas, no rgb()) so tailwind.config.js can wrap them for opacity
+   support: rgb(var(--x) / <alpha-value>). */
+:root {
+  --background: 244 245 247;
+  --foreground: 30 33 41;
+  --card: 255 255 255;
+  --card-foreground: 30 33 41;
+  --primary: 71 108 158;
+  --primary-foreground: 250 250 251;
+  --secondary: 231 233 237;
+  --secondary-foreground: 39 42 51;
+  --muted: 237 239 242;
+  --muted-foreground: 107 114 128;
+  --accent: 224 232 242;
+  --accent-foreground: 55 89 135;
+  --destructive: 197 58 58;
+  --destructive-foreground: 250 250 251;
+  --success: 41 143 90;
+  --success-foreground: 250 250 251;
+  --warning: 180 106 11;
+  --warning-foreground: 250 250 251;
+  --border: 224 226 231;
+  --ring: 71 108 158;
+}
+
+/* Dark — soft charcoal surfaces (not pure black), same muted blue family
+   lightened for contrast. */
+.dark:root {
+  --background: 19 21 26;
+  --foreground: 229 231 235;
+  --card: 26 29 35;
+  --card-foreground: 229 231 235;
+  --primary: 118 152 199;
+  --primary-foreground: 15 18 23;
+  --secondary: 38 41 49;
+  --secondary-foreground: 229 231 235;
+  --muted: 33 36 43;
+  --muted-foreground: 156 163 175;
+  --accent: 36 47 63;
+  --accent-foreground: 158 190 227;
+  --destructive: 214 82 76;
+  --destructive-foreground: 253 245 245;
+  --success: 68 179 122;
+  --success-foreground: 8 22 15;
+  --warning: 214 158 46;
+  --warning-foreground: 33 22 3;
+  --border: 44 48 56;
+  --ring: 118 152 199;
+}

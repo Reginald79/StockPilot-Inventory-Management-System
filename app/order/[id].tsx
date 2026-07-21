@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import { Badge, Button, Card, CardTitle, ErrorText, Loading, Screen } from "@/components/ui";
 import { cancelPurchaseOrder, getPurchaseOrder, receivePurchaseOrder } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
@@ -76,7 +76,17 @@ export default function OrderDetail() {
         <View className="gap-3">
           <ErrorText message={receive.error?.message || cancel.error?.message} />
           <Button title="Mark as received (adds stock)" onPress={() => receive.mutate()} loading={receive.isPending} />
-          <Button title="Cancel order" variant="destructive" onPress={() => cancel.mutate()} loading={cancel.isPending} />
+          <Button
+            title="Cancel order"
+            variant="destructive"
+            onPress={() =>
+              Alert.alert("Cancel this order?", `${order.po_number} will be marked cancelled. This can't be undone.`, [
+                { text: "Keep order", style: "cancel" },
+                { text: "Cancel order", style: "destructive", onPress: () => cancel.mutate() },
+              ])
+            }
+            loading={cancel.isPending}
+          />
         </View>
       )}
     </Screen>

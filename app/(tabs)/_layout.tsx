@@ -1,13 +1,16 @@
 import { Tabs } from "expo-router";
 import { BarChart3, Boxes, LayoutDashboard, MoreHorizontal, Package, ShoppingCart } from "lucide-react-native";
 import React from "react";
+import { useThemeColors } from "@/lib/theme";
 
 export default function TabsLayout() {
+  const colors = useThemeColors();
+
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "#18181b",
-        tabBarInactiveTintColor: "#a1a1aa",
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.mutedForeground,
         headerTitleStyle: { fontWeight: "600" },
       }}
     >

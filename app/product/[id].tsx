@@ -1,7 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Alert, Text, View } from "react-native";
 import { Badge, Button, Card, CardTitle, ErrorText, Input, Loading, Screen } from "@/components/ui";
 import { adjustStock, archiveProduct, getMovements, getProduct, getStockLevels } from "@/lib/api";
 import { useAuth } from "@/lib/auth";
@@ -107,7 +107,17 @@ export default function ProductDetail() {
       </Card>
 
       {can.editProducts(profile?.role) && (
-        <Button title="Archive product" variant="destructive" onPress={() => archive.mutate()} loading={archive.isPending} />
+        <Button
+          title="Archive product"
+          variant="destructive"
+          onPress={() =>
+            Alert.alert("Archive this product?", `${p.name} will be hidden from active listings. This can't be undone from the app.`, [
+              { text: "Cancel", style: "cancel" },
+              { text: "Archive", style: "destructive", onPress: () => archive.mutate() },
+            ])
+          }
+          loading={archive.isPending}
+        />
       )}
     </Screen>
   );
