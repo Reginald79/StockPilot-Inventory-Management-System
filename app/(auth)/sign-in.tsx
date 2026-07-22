@@ -35,7 +35,7 @@ export default function SignIn() {
           <Text className="mt-1 text-muted-foreground">Inventory for wholesale & retail</Text>
         </View>
 
-        <Card>
+        <Card className="w-full max-w-sm self-center">
           <Text className="mb-4 text-lg font-semibold text-foreground">
             {mode === "signin" ? "Sign in" : "Create your account"}
           </Text>
